@@ -11,7 +11,10 @@ import edu.smu.tspell.wordnet.NounSynset;
 import edu.smu.tspell.wordnet.Synset;
 import edu.smu.tspell.wordnet.SynsetType;
 import edu.smu.tspell.wordnet.WordNetDatabase;
+import edu.smu.tspell.wordnet.WordSense;
 import edu.smu.tspell.wordnet.impl.file.ReferenceSynset;
+import edu.smu.tspell.wordnet.impl.file.synset.AdjectiveReferenceSynset;
+import edu.smu.tspell.wordnet.impl.file.synset.AdverbReferenceSynset;
 import edu.smu.tspell.wordnet.impl.file.synset.NounReferenceSynset;
 
 
@@ -78,33 +81,77 @@ public class StartTheShow {
 		final File folder = new File("AWDEIData");
 
 		Map<String, Map> directoryMap = new HashMap<String,Map>();
-		
 
 		
 		for (final File fileEntry : folder.listFiles()) {
 	        if (fileEntry.isDirectory()) {
+	    		int numberOfWordsInDir = 0;
+	    		int numberOfAdjectivesInDir = 0;
+	    		int numberOfNounsInDir = 0;
+	    		
 	            for (File filedeeper : fileEntry.listFiles()){
 	            	
 						Map<String, Integer> m = getFrequencies(filedeeper);
 						Iterator<Entry<String, Integer>> it = m.entrySet().iterator();
 		                while (it.hasNext()) {
-		            		//Map<String, Map> directoryMap = new HashMap<String,Map>();
+		            		//one word from text 
+		                	numberOfWordsInDir++;
+		                	
 		                    Entry<String, Integer> pairs = it.next();
 
-		        			String test = pairs.getKey();
+		                    // possible usage: we could extract tag cloud for some webiste regarding some thema (animals, plants etc)
+		                    // Holonym hierarchical search for NOUNS 
+		        			String oneWordFromText = pairs.getKey();
+		        			String seraching = "europe"; // animalia, plantae, europe, man
 		        			
-		        			Synset[] synsets = database.getSynsets(test, SynsetType.NOUN); 
+		        			Synset[] synsets = database.getSynsets(oneWordFromText, SynsetType.NOUN); 
 		        			
-		        			
-		        			if(checkIfWordIsPartOf(test,"animalia",synsets)){
-		        				System.out.println("YES " + test );
+		        			if(synsets.length>0){
+		        				numberOfNounsInDir++;
 		        			}
+		        			
+		        			
+		        			if(checkIfWordIsPartOf(oneWordFromText,seraching,synsets)){
+		        				System.out.println("found "+ seraching + " "+ oneWordFromText + " in "+  fileEntry);
+		        			}
+		        			
+		        			
+		        			/*
+		        			// we can recognize maybe if this text is 
+		        			// Adjective antonyms search 
+		        			Synset[] syn2 = database.getSynsets(oneWordFromText, SynsetType.ADJECTIVE); 
+
+		        			if(syn2.length>0){
+		        				numberOfAdjectivesInDir++;
+		        			}
+		        			
+		        			
+		        			for (int i = 0; i < syn2.length; i++) { 
+		        				
+		        				WordSense [] w1 = syn2[i].getAntonyms(oneWordFromText);
+		        				if(w1.length > 0)
+		        				System.out.println("Found antonym for word " +oneWordFromText + " --- " +w1[0].getWordForm());
+
+		        			}
+		        			
+		        			
+		        			*/
+		        			
+		        			
 		        			
 		                	
 		                }
 
 	            	
 	            }
+	            
+	            double literatureRatio = ((double)((double)numberOfAdjectivesInDir)/numberOfWordsInDir)*100;
+	            double nounRation = ((double)((double)numberOfNounsInDir)/numberOfWordsInDir)*100;
+
+			/*	System.out.println(fileEntry + " --- adjective Ratio " + literatureRatio  );
+				System.out.println(fileEntry + " --- noun Ratio" + nounRation );
+*/
+	            
 	        }
 		}
 		
@@ -121,10 +168,6 @@ public class StartTheShow {
 	
 	
 	public static boolean checkIfWordIsPartOf(String word, String partOf, Synset[] synsets){
-		
-		
-		
-		
 		for (int i = 0; i < synsets.length; i++) {
 			NounReferenceSynset r1 = (NounReferenceSynset) synsets[i];
 			//System.out.println("***** "+ r1.toString() );
@@ -138,22 +181,18 @@ public class StartTheShow {
 				}
 			}
 
-			//ReferenceSynset[] ref = r1;
-			
-			
-
-			
-			
 			NounSynset[] r = r1.getMemberHolonyms();
 			//for (int n = 0; n < r.length; n++) { 
 		  return checkIfWordIsPartOf( word,  partOf, r);
 			//}
 			
 		}
-		
-		
 		return false;
 	}
+	
+	
+	
+	
 	
 	public static Map<String, Integer> getFrequencies(File document) throws FileNotFoundException{
 		Scanner sc = new Scanner(new FileInputStream(document));

@@ -1,0 +1,47 @@
+Watch a bird's odd, bent-legged gait and you'll see an evolutionary adaptation born millions of years ago in its dinosaur ancestors while they were still confined to the ground.
+
+The crouched stance developed to compensate for the growth of larger forelimbs that eventually made flight possible, according to new research that digitally "fleshed out" fossils to show physical changes over the eons as bipedal dinosaurs evolved into birds. (Read about the evolution of feathers in National Geographic magazine.)
+
+Birds and humans are the most common bipedal species in the modern world, but their legs are strikingly different. Humans are basically straight-legged, which allows their bones to support their resting body weight. But bird legs are bent into a zigzag, putting them in a crouched position that requires much more muscular effort to stand.
+
+"It's more efficient to bear weight passively, in a straight line down your long bones [like] a pillar," said Vivian Allen of the Royal Veterinary College's Structure and Motion Lab at the University of London, and co-author of a study published this week in the journal Nature.
+
+"In a crouch you have to use your muscles a lot more to resist gravity. Think about how much easier it is to hold something when you're standing up straight than it is when you are crouched down. So if you were designing an animal, this seems slightly odd from the perspective of mechanical principles." (Related: "Baby Dinosaurs Flexed Muscles Inside Their Eggs.")
+
+Surprising Results
+
+To uncover the origins of this odd stance, Allen's team used fossils to create 3-D skeletons of 17 archosaurs, a group that includes both dinosaurs and living land animals like birds. They then digitally fleshed out their bodies, using detailed muscular reconstructions and estimates taken from CT scans of living relatives, to reproduce the body shapes of the extinct animals.
+
+The results allowed the team to trace biomechanical changes over time from 245-million-year-old, crocodile-like quadrupeds, to the earliest winged and feathered dinosaur Archaeopteryx 150 million years ago, to modern birds like the red junglefowl (Gallus gallus).
+
+Big, heavy-tailed beasts like Tyrannosaurus rex gave way to animals with thinner or shorter tails. And although this most obvious physical change has long been noted, the new research suggests these modifications didn't drive the development of modern bird posture as was commonly believed.
+
+"We'd never doubted the hypothesis that the tail was responsible for the major changes in dinosaur balance and posture," co-author and Royal Veterinary College evolutionary biomechanics expert John R. Hutchinson said in a statement.
+
+"The tail is the most obvious change if you look at dinosaur bodies. But as we analyzed, and reanalyzed, and punishingly scrutinized our data, we gradually realized that everyone had forgotten to check what influence the forelimbs had on balance and posture, and that this influence was greater than that of the tail or other parts of the body."
+
+The enlarged forelimbs that gave rise to a crouching posture, and eventually flight, can be seen in winged dinosaurs like Microraptor and Archaeopteryx, and in the feathered Velociraptor. (Pictures: "Dinosaur's Flashy Feathers Revealed.")
+
+"The point we found is that if you get these big forearms, it does change the way your hind legs work as well," Allen explained. There's a pretty good statistical relationship between increasing limb mass and the position of a dinosaur's center of mass, he added, but none between the location of the center of mass and the mass of the tail.
+
+To imagine how the adaptation occurred, Allen said, you must remember that a biped's foot position is strongly related to its center of mass.
+
+"You might imagine a seesaw," he said. "If you move the hinge point of the seesaw you also have to move the support base of it. So you need to have your feet pretty well under the center of mass."
+
+If you move that center of mass forward—which is what happens with larger forelimbs like wings—you also have to move your foot forward, continued Allen. "And that means that the limb has to bend at the joints and become more crouched. If you look at an ostrich or an emu, you'll see a femur that's almost horizontal and very short."
+
+The Journey to Flight
+
+Hans-Dieter Sues, curator of vertebrate paleontology at the Smithsonian's National Museum of Natural History in Washington, D.C., wasn't involved in the study but said he found the analysis quite compelling.
+
+"Past studies had focused on the change in tail length, but this new paper is the first to look at the impact of the forelimbs on posture," he said.
+
+What he liked about the study, Sues added, was the fact that the researchers tracked the changes in posture in the context of the evolutionary history of early birds and their dinosaur relatives.
+
+The growing forelimbs appeared well before any dinosaurs took flight, so other needs drove their initial development.
+
+"The forelimbs presumably changed in length in the stem group of birds for the purpose of seizing and/or manipulating prey," Sues said. He noted, however, that these changes were a significant step on the road to flight.
+
+The long forelimbs definitely became wings in birds, he said, and "the tails became reduced as other flight adaptations in the skeleton developed."
+
+Allen said a future study might reveal more about how some dinosaurs finally got off the ground by looking at how the center of lift evolved with early gliders and flyers. "That's more difficult and you really need to have an idea of the shape and size of the feathers," she said. "But enough specimens exist that someone could give it a go."

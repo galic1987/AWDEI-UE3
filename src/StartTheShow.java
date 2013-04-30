@@ -2,13 +2,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Map.Entry;
 
 import edu.smu.tspell.wordnet.NounSynset;
 import edu.smu.tspell.wordnet.Synset;
 import edu.smu.tspell.wordnet.SynsetType;
 import edu.smu.tspell.wordnet.WordNetDatabase;
+import edu.smu.tspell.wordnet.impl.file.ReferenceSynset;
+import edu.smu.tspell.wordnet.impl.file.synset.NounReferenceSynset;
 
 
 
@@ -27,11 +31,33 @@ public class StartTheShow {
 			NounSynset[] hyponyms; 
 
 			WordNetDatabase database = WordNetDatabase.getFileInstance(); 
-			Synset[] synsets = database.getSynsets("Pig", SynsetType.NOUN); 
-			NounSynset[] ivo = database.getSynsets("Bird",SynsetType.NOUN); 
 			
 			
+
 			
+			/*for (int i = 0; i < synsets.length; i++) { 
+				//System.out.println("--- " + synsets[i].getClass().toString());
+				System.out.println("--- " + synsets[i].toString());
+
+				//System.out.println("--- " + synsets[i].getDefinition());
+				
+				NounReferenceSynset r1 = (NounReferenceSynset) synsets[i];
+				
+				 NounSynset[] r = r1.getMemberHolonyms();
+				 
+				for (int n = 0; n < r.length; n++) { 
+					
+					NounSynset q = r[n];
+					
+					System.out.println("***** " + q.getDefinition());
+				}
+
+				
+				
+
+				
+			}
+			*/
 			
 //			for (int i = 0; i < synsets.length; i++) { 
 //			    nounSynset = (NounSynset)(synsets[i]); 
@@ -49,7 +75,10 @@ public class StartTheShow {
 		// TODO Auto-generated method stub
 		
 		// 1.Iterate the contents of the directory 
-		final File folder = new File("animalsBlog");
+		final File folder = new File("AWDEIData");
+
+		Map<String, Map> directoryMap = new HashMap<String,Map>();
+		
 
 		
 		for (final File fileEntry : folder.listFiles()) {
@@ -57,7 +86,22 @@ public class StartTheShow {
 	            for (File filedeeper : fileEntry.listFiles()){
 	            	
 						Map<String, Integer> m = getFrequencies(filedeeper);
-						
+						Iterator<Entry<String, Integer>> it = m.entrySet().iterator();
+		                while (it.hasNext()) {
+		            		//Map<String, Map> directoryMap = new HashMap<String,Map>();
+		                    Entry<String, Integer> pairs = it.next();
+
+		        			String test = pairs.getKey();
+		        			
+		        			Synset[] synsets = database.getSynsets(test, SynsetType.NOUN); 
+		        			
+		        			
+		        			if(checkIfWordIsPartOf(test,"animalia",synsets)){
+		        				System.out.println("YES " + test );
+		        			}
+		        			
+		                	
+		                }
 
 	            	
 	            }
@@ -74,6 +118,42 @@ public class StartTheShow {
 		}
 	}
 	
+	
+	
+	public static boolean checkIfWordIsPartOf(String word, String partOf, Synset[] synsets){
+		
+		
+		
+		
+		for (int i = 0; i < synsets.length; i++) {
+			NounReferenceSynset r1 = (NounReferenceSynset) synsets[i];
+			//System.out.println("***** "+ r1.toString() );
+		
+			String [] wordForms = r1.getWordForms();
+			for (int n = 0; n < wordForms.length; n++) {
+				if(wordForms[n].toLowerCase().equals(partOf.toLowerCase())){
+					//System.out.println("YES" );
+
+					return true;
+				}
+			}
+
+			//ReferenceSynset[] ref = r1;
+			
+			
+
+			
+			
+			NounSynset[] r = r1.getMemberHolonyms();
+			//for (int n = 0; n < r.length; n++) { 
+		  return checkIfWordIsPartOf( word,  partOf, r);
+			//}
+			
+		}
+		
+		
+		return false;
+	}
 	
 	public static Map<String, Integer> getFrequencies(File document) throws FileNotFoundException{
 		Scanner sc = new Scanner(new FileInputStream(document));

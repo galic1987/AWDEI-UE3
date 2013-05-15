@@ -102,21 +102,23 @@ public class StartTheShow {
 		                    // possible usage: we could extract tag cloud for some webiste regarding some thema (animals, plants etc)
 		                    // Holonym hierarchical search for NOUNS 
 		        			String oneWordFromText = pairs.getKey();
-		        			String seraching = "europe"; // animalia, plantae, europe, man
+		        			String seraching = "man"; // animalia, plantae, europe, man
 		        			
 		        			Synset[] synsets = database.getSynsets(oneWordFromText, SynsetType.NOUN); 
 		        			
 		        			if(synsets.length>0){
 		        				numberOfNounsInDir++;
 		        			}
-		        			
+		        			/*
 		        			
 		        			if(checkIfWordIsPartOf(oneWordFromText,seraching,synsets)){
 		        				System.out.println("found "+ seraching + " "+ oneWordFromText + " in "+  fileEntry);
 		        			}
 		        			
+		        			*/
 		        			
-		        			/*
+		        			
+		        			
 		        			// we can recognize maybe if this text is 
 		        			// Adjective antonyms search 
 		        			Synset[] syn2 = database.getSynsets(oneWordFromText, SynsetType.ADJECTIVE); 
@@ -125,7 +127,7 @@ public class StartTheShow {
 		        				numberOfAdjectivesInDir++;
 		        			}
 		        			
-		        			
+		        			/*
 		        			for (int i = 0; i < syn2.length; i++) { 
 		        				
 		        				WordSense [] w1 = syn2[i].getAntonyms(oneWordFromText);
@@ -133,9 +135,9 @@ public class StartTheShow {
 		        				System.out.println("Found antonym for word " +oneWordFromText + " --- " +w1[0].getWordForm());
 
 		        			}
-		        			
-		        			
 		        			*/
+		        			
+		        			
 		        			
 		        			
 		        			
@@ -148,9 +150,9 @@ public class StartTheShow {
 	            double literatureRatio = ((double)((double)numberOfAdjectivesInDir)/numberOfWordsInDir)*100;
 	            double nounRation = ((double)((double)numberOfNounsInDir)/numberOfWordsInDir)*100;
 
-			/*	System.out.println(fileEntry + " --- adjective Ratio " + literatureRatio  );
+				System.out.println(fileEntry + " --- adjective Ratio " + literatureRatio  );
 				System.out.println(fileEntry + " --- noun Ratio" + nounRation );
-*/
+
 	            
 	        }
 		}
